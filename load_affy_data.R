@@ -4,8 +4,7 @@ library(affy)
 
 #this automatically loads all the CEL files in the directory
 data <- ReadAffy()
-eset <- rma(data)
-affy_frame <- data.frame(exprs(eset))
+affy_frame <- rma(data)
 
 #convert the affy ids to entrez ids
 library(hgu133plus2.db)
@@ -28,6 +27,6 @@ for (i in 1:length(row.names(affy_frame))){
 entrez_frame <- affy_frame[logvec,]
 
 #assign entrez ids to each row in the frame, it's affy data so there will be duplicates so append instead of replacing the id
-for (i in 1:length(row.names(new_frame))){
+for (i in 1:length(row.names(entrez_frame))){
   row.names(entrez_frame)[i] <- paste0(row.names(entrez_frame)[i], "~" , mapped_list[[row.names(entrez_frame)[i]]])
 }
