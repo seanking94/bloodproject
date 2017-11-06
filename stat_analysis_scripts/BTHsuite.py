@@ -1,4 +1,5 @@
 '''
+Authors: Dumitriascu et al. (https://arxiv.org/abs/1512.01616)
 Goal: given genotypes x and phenotypes y, determine if the samples y
 are heteroskedastic with behavior detemined by the covariates x
 '''
